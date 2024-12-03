@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Galerie de Photos</title>
+</head>
+<body>
+    <h1>Galerie Interactive</h1>
+    <section id="gallery">
+        <!-- Images seront ajoutées ici -->
+    </section>
+</body>
+</html>
+<figure>
+    <img src="image1.jpg" alt="Description de l'image 1">
+    <figcaption>Description de l'image 1</figcaption>
+</figure>
+<figure>
+    <img src="image2.jpg" alt="Description de l'image 2">
+    <figcaption>Description de l'image 2</figcaption>
+</figure>
+<!-- Répétez pour les six images -->
+<script src="script.js" defer></script>
+window.onload = () => {
+    console.log("La page est chargée !");
+    const figures = document.querySelectorAll('figure');
+    figures.forEach((figure, index) => {
+        figure.setAttribute('tabindex', index + 1);
+        figure.addEventListener('focus', () => {
+            figure.style.outline = '2px solid blue';
+        });
+        figure.addEventListener('blur', () => {
+            figure.style.outline = 'none';
+        });
+        figure.addEventListener('mouseover', () => {
+            figure.style.backgroundColor = 'lightgrey';
+        });
+        figure.addEventListener('mouseleave', () => {
+            figure.style.backgroundColor = 'transparent';
+        });
+    });
+};
